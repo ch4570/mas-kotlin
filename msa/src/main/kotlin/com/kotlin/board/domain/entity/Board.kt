@@ -1,13 +1,14 @@
-package com.kotlin.board.domain
+package com.kotlin.board.domain.entity
 
 import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 
 @Table("BOARD")
-class Board (
+class Board(
         @Column("BOARD_ID")
         val boardId: Long? = null,
 

@@ -1,5 +1,7 @@
 package com.kotlin.board.service
 
+import com.kotlin.board.domain.dto.request.BoardRequestDto
+import com.kotlin.board.domain.entity.Board
 import com.kotlin.board.repository.BoardRepository
 import org.springframework.stereotype.Service
 
@@ -10,5 +12,9 @@ class BoardService(
 
     fun getAllBoards() = boardRepository.findAll()
 
-    fun getBoardByAuthor(author: String) = boardRepository.findByAuthor(author)
+    fun getBoardByBoardId(boardId: Long) = boardRepository.findByBoardId(boardId)
+
+    fun saveBoard(board: Board) {
+        boardRepository.save(board).subscribe()
+    }
 }

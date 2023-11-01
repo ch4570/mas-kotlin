@@ -1,6 +1,6 @@
 package com.kotlin.board
 
-import com.kotlin.board.domain.Board
+import com.kotlin.board.domain.entity.Board
 import com.kotlin.board.repository.BoardRepository
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication

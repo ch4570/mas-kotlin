@@ -14,7 +14,8 @@ class RouterConfig(
     fun routerFunction(boardHandler: BoardHandler) = router {
         accept(MediaType.APPLICATION_JSON).nest {
             GET("/api/boards", boardHandler::getAllBoards)
-            GET("/api/boards/{author}", boardHandler::getBoardByAuthor)
+            GET("/api/boards/{boardId}", boardHandler::getBoardByBoardId)
+            POST("/api/boards", boardHandler::saveBoard)
         }
     }
 
