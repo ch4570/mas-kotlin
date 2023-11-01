@@ -33,7 +33,7 @@ class GlobalExceptionHandler(errorAttributes: ErrorAttributes, applicationContex
     private fun renderErrorResponse(request: ServerRequest) : Mono<ServerResponse> {
         val errorMap = getErrorAttributes(request, ErrorAttributeOptions.defaults())
 
-        return ServerResponse.status(errorMap.get("status").toString().toInt())
+        return ServerResponse.status(errorMap["status"].toString().toInt())
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromValue(errorMap))
     }
