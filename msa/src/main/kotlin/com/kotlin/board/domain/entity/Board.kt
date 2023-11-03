@@ -40,7 +40,6 @@ class Board(
         title = boardRequestDto.title!!
         content = boardRequestDto.content!!
         author = boardRequestDto.author!!
-
         return this
     }
 }

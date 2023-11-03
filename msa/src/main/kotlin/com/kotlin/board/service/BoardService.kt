@@ -14,7 +14,8 @@ class BoardService(
 
     fun getBoardByBoardId(boardId: Long) = boardRepository.findById(boardId)
 
-    fun saveBoard(board: Board) {
-        boardRepository.save(board).subscribe()
-    }
+    fun saveBoard(board: Board) = boardRepository.save(board).subscribe()
+
+
+    fun removeBoard(boardId: Long) = boardRepository.deleteById(boardId)
 }

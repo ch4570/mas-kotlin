@@ -64,6 +64,13 @@ class BoardHandler(
 
     }
 
+    fun removeBoard(serverRequest: ServerRequest) =
+            boardService.removeBoard(serverRequest.pathVariable("boardId").toLong())
+                    .then(Mono.defer {
+                        ServerResponse
+                                .ok().build()
+                    })
+
 
     private fun validate(boardRequestDto: BoardRequestDto) {
         val validator = BoardValidator()
