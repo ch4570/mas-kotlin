@@ -12,7 +12,7 @@ class BoardService(
 
     fun getAllBoards() = boardRepository.findAll()
 
-    fun getBoardByBoardId(boardId: Long) = boardRepository.findByBoardId(boardId)
+    fun getBoardByBoardId(boardId: Long) = boardRepository.findById(boardId)
 
     fun saveBoard(board: Board) {
         boardRepository.save(board).subscribe()

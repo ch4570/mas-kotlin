@@ -16,6 +16,7 @@ class RouterConfig(
             GET("/api/boards", boardHandler::getAllBoards)
             GET("/api/boards/{boardId}", boardHandler::getBoardByBoardId)
             POST("/api/boards", boardHandler::saveBoard)
+            PATCH("/api/boards/{boardId}", boardHandler::modifyBoard)
         }
     }
 

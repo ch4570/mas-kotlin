@@ -12,6 +12,7 @@ import org.springframework.validation.BeanPropertyBindingResult
 import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.server.*
 import reactor.core.publisher.Mono
+import reactor.core.scheduler.Schedulers
 
 @Component
 class BoardHandler(
@@ -48,6 +49,20 @@ class BoardHandler(
                             .ok().build()
                 }
 
+    fun modifyBoard(serverRequest: ServerRequest) =
+        serverRequest.bodyToMono(BoardRequestDto::class.java)
+                .flatMap { boardRequestDto ->
+                    validate(boardRequestDto)
+
+                    val boardId = serverRequest.pathVariable("boardId").toLong()
+                    boardService.getBoardByBoardId(boardId)
+                            .flatMap {
+                                board -> boardService.saveBoard(board.updateBoard(boardRequestDto))
+                                ServerResponse
+                                        .ok().build()
+                            }
+
+    }
 
 
     private fun validate(boardRequestDto: BoardRequestDto) {
