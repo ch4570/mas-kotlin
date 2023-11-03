@@ -15,6 +15,7 @@ class BoardValidator : Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "제목은 비어있을 수 없습니다.")
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "content", "내용은 비어있을 수 없습니다.")
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "author", "작성자는 비어있을 수 없습니다.")
+        ValidationUtils.rejectIfEmpty(errors, "userNumber", "회원 고유번호는 필수 값입니다.")
     }
 
 }

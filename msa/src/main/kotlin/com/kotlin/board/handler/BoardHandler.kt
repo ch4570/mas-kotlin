@@ -43,7 +43,8 @@ class BoardHandler(
                     validate(boardRequestDto)
                     boardService.saveBoard(Board(content = boardRequestDto.content!!,
                             title = boardRequestDto.title!!,
-                            author = boardRequestDto.author!!))
+                            author = boardRequestDto.author!!,
+                            userNumber = boardRequestDto.userNumber!!))
 
                     ServerResponse
                             .ok().build()

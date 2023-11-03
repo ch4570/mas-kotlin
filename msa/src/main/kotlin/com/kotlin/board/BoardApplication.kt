@@ -16,11 +16,13 @@ class BoardApplication(
 	override fun run(vararg args: String?) {
 		val board1 = Board(title = "웹 플럭스1",
 				content = "웹 플럭스1 최고",
-				author = "콜인이1")
+				author = "콜인이1",
+				userNumber = 1L)
 
 		val board2 = Board(title = "웹 플럭스2",
 				content = "웹 플럭스2 최고",
-				author = "콜인이2")
+				author = "콜인이2",
+				userNumber = 3L)
 
 		val boardList = listOf(board1, board2)
 		boardRepository.saveAll(boardList).subscribe()

@@ -23,6 +23,9 @@ class Board(
         @Column("AUTHOR")
         var author: String,
 
+        @Column("USER_NUMBER")
+        var userNumber: Long,
+
         @Column("REG_DATE")
         @CreatedDate
         var regDate: LocalDateTime? = null,
@@ -32,14 +35,19 @@ class Board(
         var modDate: LocalDateTime? = null
 ){
 
-    override fun toString(): String {
-        return "Board(boardId=$boardId, title='$title', content='$content', author='$author', regDate=$regDate, modDate=$modDate)"
-    }
+
 
     fun updateBoard(boardRequestDto: BoardRequestDto) : Board {
         title = boardRequestDto.title!!
         content = boardRequestDto.content!!
         author = boardRequestDto.author!!
         return this
+    }
+
+    override fun toString(): String {
+        return "Board(boardId=$boardId, title='$title', " +
+                "content='$content', author='$author', " +
+                "userNumber=$userNumber, regDate=$regDate, " +
+                "modDate=$modDate)"
     }
 }
